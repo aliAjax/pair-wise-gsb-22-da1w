@@ -18,7 +18,9 @@ body {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -214,13 +216,23 @@ label {
   gap: 8px;
 }
 
-input {
+input,
+select,
+textarea {
   width: 100%;
   min-height: 42px;
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0 12px;
   color: #172033;
+  background: #ffffff;
+}
+
+textarea {
+  min-height: 96px;
+  padding: 10px 12px;
+  resize: vertical;
+  line-height: 1.7;
 }
 
 .record-list {
@@ -260,6 +272,235 @@ input {
   line-height: 1.6;
 }
 
+.tab-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tab-bar button {
+  border-radius: 999px;
+  padding: 8px 18px;
+}
+
+.tab-bar button.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #eef2f7;
+  color: #526070;
+}
+
+.badge.ok {
+  background: color-mix(in srgb, var(--accent) 14%, #ffffff);
+  color: var(--accent);
+}
+
+.badge.warn {
+  background: color-mix(in srgb, var(--warn) 14%, #ffffff);
+  color: var(--warn);
+}
+
+.badge.danger {
+  background: color-mix(in srgb, #e11d48 12%, #ffffff);
+  color: #e11d48;
+}
+
+.clue-card {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  background: #fbfdff;
+  margin-bottom: 18px;
+}
+
+.clue-card ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  line-height: 1.9;
+  color: #334155;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.option {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.option small {
+  color: #94a3b8;
+}
+
+.option.selected {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 8%, #ffffff);
+}
+
+.option.correct {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, #ffffff);
+}
+
+.option.wrong {
+  border-color: #e11d48;
+  background: color-mix(in srgb, #e11d48 10%, #ffffff);
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.banner {
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  display: grid;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+.banner.ok {
+  background: color-mix(in srgb, var(--accent) 10%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, #ffffff);
+}
+
+.banner.bad {
+  background: color-mix(in srgb, #e11d48 8%, #ffffff);
+  border: 1px solid color-mix(in srgb, #e11d48 30%, #ffffff);
+}
+
+.banner.pause {
+  background: color-mix(in srgb, var(--warn) 10%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--warn) 35%, #ffffff);
+}
+
+.row-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.form-grid .full {
+  grid-column: 1 / -1;
+}
+
+.hint {
+  color: #94a3b8;
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.empty-note {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.data-table th {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.defect-ref {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.defect-ref article {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #fbfdff;
+}
+
+.defect-ref h3 {
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.defect-ref h3 small {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.defect-ref p {
+  margin: 0;
+  color: #526070;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.summary-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.text-ok {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.text-bad {
+  color: #e11d48;
+  font-weight: 700;
+}
+
+.record-index.ok {
+  background: var(--accent);
+}
+
+.record-index.bad {
+  background: #e11d48;
+}
+
 @media (max-width: 860px) {
   .hero,
   .workspace,
@@ -267,7 +508,10 @@ input {
     grid-template-columns: 1fr;
   }
 
-  .field-grid {
+  .field-grid,
+  .option-grid,
+  .form-grid,
+  .defect-ref {
     grid-template-columns: 1fr;
   }
 }
